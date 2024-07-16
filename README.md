@@ -79,10 +79,10 @@
             After the plaintext has been permuted using the initial permutation table, the string is split into two halves: the right half (R0) and the left half (L0), each consisting of 4 bits.
         </li>
         <li>
-            For each round <em>i</em>, a round key <em>RK<sub>i</sub></em> is generated, which will be discussed in detail later. During each round, the right half <em>R<sub>i</sub></em> (4 bits) is manipulated using a function <em>f</em>. The inputs to this function are the right half <em>R<sub>i</sub></em> and the round key <em>RK<sub>i</sub></em> (6 bits).
+            For each round <em>i</em>, a round key <em>RK<sub>i</sub></em> is generated. During each round, the right half <em>R<sub>i</sub></em> (4 bits) is manipulated using a function <em>f</em>. The inputs to this function are the right half <em>R<sub>i</sub></em> and the round key <em>RK<sub>i</sub></em> (6 bits).
         </li>
         <li>
-            The output of the function <em>f</em> (4 bits) is then XORed with the left half <em>L<sub>i</sub></em> of the plaintext, which remains unchanged throughout the process.
+            The output of the function <em>f</em> (4 bits) is then XORed with the left half <em>L<sub>i</sub></em> of the plaintext.
         </li>
         <li>
             The result of the XOR operation becomes the new right half for the next round. The right half of the current round <em>R<sub>i</sub></em> becomes the left half for the next round <em>L<sub>i+1</sub></em>.
@@ -117,10 +117,11 @@
         </tr>
     </table>
     <br>
-    <img width="600" src="./assets/algorithm-flowchart.png">
-    <br>
+    <img border="1" width="600" src="./assets/algorithm-flowchart.png">
+    <br><br>
     <h4>Round Key Generation</h4>
-    <img width="600" src="./assets/round-key-generation.png">
+    <br>
+    <img border="1" width="600" src="./assets/round-key-generation.png">
     <br><br>
     <div>
         Note that the <b>compression of 8 bits into 6 bits</b> is done with respect to the below <b>compression box</b>
@@ -151,7 +152,7 @@
     The round function f takes two inputs :
     <ul>
         <li>The right half (4 bits)</li>
-        <li>The round key (6 bits)</li>
+        <li>ROUND_KEY (6 bits)</li>
     </ul>   
     The right half is first expanded (and simultaneously permuted) to 6 bits using the below <b>expansion box</b>.
     <br><br>
@@ -174,10 +175,10 @@
         </tr>
     </table>
     <div>
-        After the XOR operation , the 6 bits are split into 3 bits each (left and right) and sent into two S boxes that each produce 2 bits.
+        After the XOR operation , the 6 bits are split into 3 bits each (left and right) and sent into two S boxes.
     </div>
     <br>
-    <img width="600" src="./assets/function-f.png">
+    <img border="1" width="600" src="./assets/function-f.png">
     <br>
     <h4>Working of S boxes</h4>
     <div>
@@ -187,7 +188,7 @@
     <img width="600" src="./assets/s-box.png">
     <br><br>
     <div>
-        Once the S box operations are done , the two 2-bit outputs are merged and permuted according to the below <b>permutation table</b>
+        The two 2-bit outputs are merged and permuted according to the below <b>permutation table</b>
     </div>
     <br>
     <table border="1">
@@ -214,7 +215,7 @@
 <h3 id="implementation">Implementation</h3>
 <div>
     A MATLAB script has been developed to implement a simplified version of the DES algorithm, as illustrated in the attached flow chart. The script includes several functions, which are outlined below:
-    <br>
+    <br><br>
     <ul>
         <li>
             <code>des_algorithm</code>: calls <code>initial permutation</code> and <code>encrypt_message</code> function on the input message.
@@ -226,7 +227,7 @@
             <code>encrypt_message</code>: executes the encryption rounds using the generated round keys.
         </li>
         <li>
-            <code>generate_round_key</code>: generates round keys for each encryption round leveraging circular shifts and compression box.
+            <code>generate_round_key</code>: generates round keys for each encryption round using circular shifts and compression box.
         </li>
         <li>
             <code>f</code>: applies a sequence of operations including expansion box, XOR (.^), S-box substitution and permutation to the right half of current round message and the ROUND KEY.
@@ -244,14 +245,14 @@
 <blockquote>
     Please note that executing the script requires a a valid MATLAB license. In case it is not available, please navigate to <a href="https://matlab.mathworks.com/">MATLAB Online</a> and upload the script there.
 </blockquote>
-<br>
+
 <div>
     Clone the repo using the command <code>git clone https://github.com/asood-life/des-algorithm-implementation.git</code>
     <h4>Folder Structure</h4>
 </div>
 
 ```
-│   des_algorithm_script.m
+│   script.m
 │   LICENSE
 │   README.md
 │
@@ -264,47 +265,46 @@
 
 <h3 id="usage">Usage</h3>
 <div>
-    Open the script <code>des_algorithm_script.m</code> in MATLAB. Within this script, use the variables <code>input_message</code> and <code>initial_key</code> to provide the desired input. Once configured, execute the script to observe the encrypted message output in the console. 
+    Open <code>script.m</code> in MATLAB. Within this script, use the variables <code>input_message</code> and <code>initial_key</code> to provide the desired input. Once configured, execute the script to observe the encrypted message in console. 
 </div>
 
 <h3 id="results-and-performance">Results and Performance</h3>
-<div>
-    The MATLAB script successfully implements a version of the DES algorithm as proposed. It takes as input an 8-bit plaintext message and an 8-bit initial key, encrypting it according to the algorithm flow described earlier.
-    <h4>Sample Input</h4>
-    <div>
-        <code>
-            input_message = [1 1 0 1 0 0 1 0];  % 8-bit input message (plaintext)<br>
-            initial_key = [1 0 1 1 0 0 1 1];    % 8-bit initial key
-        </code>
-    </div>
-    <h4>Sample Output</h4>
-    <code>
-        Initial Permuted Message: 
-            0     1     0     1     1     1     0     0
-        <br><br>
-        ROUND KEY for Round 1:  
-            1     0     1     1     0     1
-        <br>
-        ROUND KEY for Round 2:  
-            0     1     0     1     1     0
-        <br>
-        ROUND KEY for Round 3:  
-            1     1     1     1     1     0
-        <br>
-        ROUND KEY for Round 4:  
-            1     1     0     0     0     1
-        <br><br>
-        Encrypted Message:
-            0     0     0     1     0     1     0     0
-    </code>
-    <br><br>
-    The script takes just <b>0.008066 seconds</b> to encrypt the provided message. 
-</div>
+The MATLAB script successfully implements a version of the DES algorithm as proposed. It takes as input an 8-bit plaintext message and an 8-bit initial key, encrypting it according to the algorithm flow described earlier.
+<h4>Sample Input</h4>
+
+```
+input_message = [1 1 0 1 0 0 1 0];  % 8-bit input message (plaintext)
+initial_key = [1 0 1 1 0 0 1 1];    % 8-bit initial key
+```
+    
+<h4>Sample Output</h4>
+
+```
+Initial Permuted Message: 
+    0     1     0     1     1     1     0     0
+
+ROUND KEY for Round 1:  
+    1     0     1     1     0     1
+
+ROUND KEY for Round 2:  
+    0     1     0     1     1     0
+
+ROUND KEY for Round 3:  
+    1     1     1     1     1     0
+
+ROUND KEY for Round 4:  
+    1     1     0     0     0     1
+    
+Encrypted Message:
+    0     0     0     1     0     1     0     0
+```
+
+The script takes just <b>0.008066 seconds</b> to encrypt the provided message. 
 
 <h3 id="future-work">Future Work</h3>
 <div>
     As the project progresses, the next crucial step involves designing an optimized digital circuit. Several key components have been identified for potential integration into the circuit.
-    <br>
+    <br><br>
     <table border="1">
         <thead>
             <tr>
@@ -376,7 +376,5 @@
 </div>
 <hr>
 <div>
-    Thank you for visiting! If you find value in this project, please consider giving it a ⭐ star. Your support is greatly appreciated and assists others discover the project.
-    <br>
-    If you have any requests for enhancements or find any bugs, please report them under <a href="https://github.com/asood-life/des-algorithm-implementation/issues">Issues</a>. Your feedback is invaluable in making this project better for everyone.
+    Thank you for visiting! If you find value in this project, please consider giving it a ⭐ star. Your support is greatly appreciated and assists others discover the project. If you have any requests for enhancements or find any bugs, please report them under <a href="https://github.com/asood-life/des-algorithm-implementation/issues">Issues</a>. Your feedback is invaluable in making this project better for everyone.
 </div>
