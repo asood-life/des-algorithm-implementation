@@ -376,5 +376,5 @@ The script takes just <b>0.008066 seconds</b> to encrypt the provided message.
 </div>
 <hr>
 <div>
-    Thank you for visiting! If you find value in this project, please consider giving it a ⭐ star. Your support is greatly appreciated and assists others discover the project. If you have any requests for enhancements or find any bugs, please report them under <a href="https://github.com/asood-life/des-algorithm-implementation/issues">Issues</a>. Your feedback is invaluable in making this project better for everyone.
+    Thank you for taking the time to go through this project! If you find it valuable, please consider giving it a ⭐ star. Your support is appreciated and helps others in discovering the project. Should you have any enhancement requests or encounter a bug, please report it in the <a href="https://github.com/asood-life/des-algorithm-implementation/issues">Issues</a> section. Your feedback is crucial in improving this project for all.
 </div>
