@@ -76,7 +76,7 @@
     <br>
     <ul>
         <li>
-            After the plaintext has been permuted using the initial permutation table, the string is split into two halves: the right half (R0) and the left half (L0), each consisting of 4 bits.
+            After the plaintext has been permuted using the initial permutation table, the string is split into two halves: the right half (R<sub>0</sub>) and the left half (L<sub>0</sub>), each consisting of 4 bits.
         </li>
         <li>
             For each round <em>i</em>, a round key <em>RK<sub>i</sub></em> is generated. During each round, the right half <em>R<sub>i</sub></em> (4 bits) is manipulated using a function <em>f</em>. The inputs to this function are the right half <em>R<sub>i</sub></em> and the round key <em>RK<sub>i</sub></em> (6 bits).
@@ -88,7 +88,7 @@
             The result of the XOR operation becomes the new right half for the next round. The right half of the current round <em>R<sub>i</sub></em> becomes the left half for the next round <em>L<sub>i+1</sub></em>.
         </li>
         <li>
-            After completing round 4, the final halves <em>R<sub>4</sub></em> and <em>L<sub>4</sub></em> are merged and undergo an inverse permutation using the inverse permutation table provided below.
+            After completing round 4, the final halves <em>R<sub>4</sub></em> and <em>L<sub>4</sub></em> are merged and undergo an inverse permutation.
         </li>
     </ul>
     <br>
@@ -233,18 +233,18 @@
             <code>f</code>: applies a sequence of operations including expansion, XOR, s-box substitution and permutation.
         </li>
         <li>
-            <code>s_box_one</code>: perform substitution as per S-box 1, mapping 3-bit input to 2-bit.
+            <code>s_box_one</code>: perform substitution as per s-box 1, mapping 3-bit input to 2-bit.
         </li>
         <li>
-            <code>s_box_two</code>: perform substitution as per S-box 2, mapping 3-bit input to 2-bit.
+            <code>s_box_two</code>: perform substitution as per s-box 2, mapping 3-bit input to 2-bit.
         </li>
     </ul>
 </div>
 
 <h3 id="installation-and-setup">Installation and Setup</h3>
-<blockquote>
+<!-- <blockquote>
     Please note that executing the script requires a a valid MATLAB license. In case it is not available, please navigate to <a href="https://matlab.mathworks.com/">MATLAB Online</a> and upload the script there.
-</blockquote>
+</blockquote> -->
 
 <div>
     Clone the repo using <code>git clone https://github.com/asood-life/des-algorithm-implementation.git</code>
