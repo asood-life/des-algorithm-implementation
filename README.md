@@ -5,7 +5,7 @@
     <li><a href="#implementation">Implementation</a></li>
     <li><a href="#installation-and-setup">Installation and Setup</a></li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#results-and-performance">Results and Performance</a></li>
+    <li><a href="#results-and-performance">Results</a></li>
     <li><a href="#future-work">Future Work</a></li>
     <li><a href="#team">Team</a></li>
 </ul>
@@ -76,7 +76,7 @@
     <br>
     <ul>
         <li>
-            After the plaintext has been permuted using the initial permutation table, the string is split into two halves: the right half (R<sub>0</sub>) and the left half (L<sub>0</sub>), each consisting of 4 bits.
+            After the plaintext has been permuted using the initial permutation table, the input message string is split into two halves: the right half (<em>>R<sub>0</sub></em>) and the left half (<em<L<sub>0</sub></em>), with each consisting of 4 bits.
         </li>
         <li>
             For each round <em>i</em>, a round key <em>RK<sub>i</sub></em> is generated. During each round, the right half <em>R<sub>i</sub></em> (4 bits) is manipulated using a function <em>f</em>. The inputs to this function are the right half <em>R<sub>i</sub></em> and the round key <em>RK<sub>i</sub></em> (6 bits).
@@ -88,7 +88,7 @@
             The result of the XOR operation becomes the new right half for the next round. The right half of the current round <em>R<sub>i</sub></em> becomes the left half for the next round <em>L<sub>i+1</sub></em>.
         </li>
         <li>
-            After completing round 4, the final halves <em>R<sub>4</sub></em> and <em>L<sub>4</sub></em> are merged and undergo an inverse permutation.
+            The final halves <em>R<sub>4</sub></em> and <em>L<sub>4</sub></em> are merged and undergo an inverse permutation.
         </li>
     </ul>
     <br>
