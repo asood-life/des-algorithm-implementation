@@ -14,7 +14,7 @@
 <div>
     This project presents a simplified implementation of the <b>DES (Data Encryption Standard)</b> algorithm, specifically tailored for educational purposes. The primary goal is to leverage fundamental cryptography principles to understand the applications of this algorithm in secure communication protocols and smart cards.
     <br><br>
-    The project centers around an <b>8-bit encryption scheme</b>, inspired by the simplified DES algorithm. The process begins with an initial <b>8-bit key</b>, which is then divided into <b>four 6-bit round keys</b>. The encryption process involves transforming an 8-bit plaintext through <b>four rounds</b>, each incorporating a unique round key. Each round adds progressive layers of complexity and security, making the encryption more robust.
+    The project centers around an <b>8-bit encryption scheme</b>, inspired by the simplified DES algorithm. The process begins with an initial <b>8-bit key</b>, which is then divided into <b>four 6-bit round keys</b>. The encryption process involves transforming an 8-bit plaintext through <b>four rounds</b>, each incorporating a unique round key. Each round adds progressive layers of complexity and security, making the encryption more robust and reliable.
 </div>
 
 <h3 id="overview">Overview</h3>
