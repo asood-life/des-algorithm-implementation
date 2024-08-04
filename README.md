@@ -76,13 +76,13 @@
     <br>
     <ul>
         <li>
-            After the plaintext has been permuted using the initial permutation table, the input message string is split into two halves: the right half (<em>>R<sub>0</sub></em>) and the left half (<em<L<sub>0</sub></em>), with each consisting of 4 bits.
+            After the plaintext has been permuted using the initial permutation table, the input message string is split into two halves: the right half (<em>R<sub>0</sub></em>) and the left half (<em>L<sub>0</sub></em>), with each half consisting of 4 bits.
         </li>
         <li>
             For each round <em>i</em>, a round key <em>RK<sub>i</sub></em> is generated. During each round, the right half <em>R<sub>i</sub></em> (4 bits) is manipulated using a function <em>f</em>. The inputs to this function are the right half <em>R<sub>i</sub></em> and the round key <em>RK<sub>i</sub></em> (6 bits).
         </li>
         <li>
-            The output of the function <em>f</em> (4 bits) is then XORed with the left half <em>L<sub>i</sub></em> of the plaintext.
+            The output of function <em>f</em> (4 bits) is then XORed with left half <em>L<sub>i</sub></em> of the plaintext.
         </li>
         <li>
             The result of the XOR operation becomes the new right half for the next round. The right half of the current round <em>R<sub>i</sub></em> becomes the left half for the next round <em>L<sub>i+1</sub></em>.
@@ -268,7 +268,7 @@
     Open <code>script.m</code> in MATLAB. Within this script, use the variables <code>input_message</code> and <code>initial_key</code> to provide the desired input. Once configured, execute the script to observe the encrypted message in console. 
 </div>
 
-<h3 id="results-and-performance">Results and Performance</h3>
+<h3 id="results-and-performance">Results</h3>
 The MATLAB script successfully implements a version of the DES algorithm as proposed. It takes as input an 8-bit plaintext message and an 8-bit initial key, encrypting it according to the algorithm flow described earlier.
 <h4>Sample Input</h4>
 
