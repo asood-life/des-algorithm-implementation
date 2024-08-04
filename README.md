@@ -12,7 +12,7 @@
 
 <h3 id="introduction">Introduction</h3>
 <div>
-    This project presents a simplified implementation of the <b>DES (Data Encryption Standard)</b> algorithm, specifically tailored for educational purposes. The primary goal is to leverage fundamental cryptography principles to understand the applications of this algorithm in secure communication protocols, smart cards, and network security.
+    This project presents a simplified implementation of the <b>DES (Data Encryption Standard)</b> algorithm, specifically tailored for educational purposes. The primary goal is to leverage fundamental cryptography principles to understand the applications of this algorithm in secure communication protocols and smart cards.
     <br><br>
     The project centers around an <b>8-bit encryption scheme</b>, inspired by the simplified DES algorithm. The process begins with an initial <b>8-bit key</b>, which is then divided into <b>four 6-bit round keys</b>. The encryption process involves transforming an 8-bit plaintext through <b>four rounds</b>, each incorporating a unique round key. Each round adds progressive layers of complexity and security, making the encryption more robust.
 </div>
@@ -227,10 +227,10 @@
             <code>encrypt_message</code>: executes the encryption rounds using the generated round keys.
         </li>
         <li>
-            <code>generate_round_key</code>: generates round keys for each encryption round using circular shifts and compression box.
+            <code>generate_round_key</code>: generates round keys for each encryption round using circular shifts and compression.
         </li>
         <li>
-            <code>f</code>: applies a sequence of operations including expansion box, XOR (.^), S-box substitution and permutation to the right half of current round message and the ROUND KEY.
+            <code>f</code>: applies a sequence of operations including expansion, XOR, s-box substitution and permutation.
         </li>
         <li>
             <code>s_box_one</code>: perform substitution as per S-box 1, mapping 3-bit input to 2-bit.
@@ -247,7 +247,7 @@
 </blockquote>
 
 <div>
-    Clone the repo using the command <code>git clone https://github.com/asood-life/des-algorithm-implementation.git</code>
+    Clone the repo using <code>git clone https://github.com/asood-life/des-algorithm-implementation.git</code>
     <h4>Folder Structure</h4>
 </div>
 
@@ -376,5 +376,5 @@ The script takes just <b>0.008066 seconds</b> to encrypt the provided message.
 </div>
 <hr>
 <div>
-    Thank you for taking the time to go through this project! If you find it valuable, please consider giving it a ⭐ star. Your support is appreciated and helps others in discovering the project. Should you have any enhancement requests or encounter a bug, please report it in the <a href="https://github.com/asood-life/des-algorithm-implementation/issues">Issues</a> section. Your feedback is crucial in improving this project for all.
+    Thank you for taking the time to go through this project! If you find it valuable, please consider giving it a ⭐ star. Your support is appreciated and helps others in discovering the project. Should you have enhancement requests or encounter a bug, please report it in the <a href="https://github.com/asood-life/des-algorithm-implementation/issues">Issues</a> section. Your feedback is crucial in improving this project.
 </div>
